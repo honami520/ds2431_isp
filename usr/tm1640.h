@@ -2,6 +2,15 @@
 #define _TM1640_H__
 #include "stm32f10x.h"
 
+
+#define LED_SUC_OFF()	(GPIOB->BSRR = GPIO_Pin_12)
+#define LED_SUC_ON()	(GPIOB->BRR = GPIO_Pin_12)
+
+#define LED_FAIL_OFF()	(GPIOB->BSRR = GPIO_Pin_12)
+#define LED_FAIL_ON()	(GPIOB->BRR = GPIO_Pin_12)
+
+
+
 #define SDA_H()     (GPIOB->BSRR = GPIO_Pin_7)
 #define SDA_L()     (GPIOB->BRR = GPIO_Pin_7)
 #define SCL_H()     (GPIOB->BSRR = GPIO_Pin_6)
@@ -45,6 +54,7 @@
 
 void udelay(uint16_t i);
 void mdelay(uint16_t i);
+void led_init(void);
 void tm1640_init(void);
 void tm1640_start(void);
 void tm1640_stop(void);

@@ -13,11 +13,33 @@ void systick_init(void)
 
 int main(void)
 {
+	uint8_t i;
+	
 	systick_init();
 	key_init();
 	tm1640_init();
+	led_init();
 	mdelay(100);
 	CH376_HOST_INIT();
+	
+	for (i = 0; i < 10; i ++)
+	{
+		if(CH376DiskConnect() == USB_INT_SUCCESS)
+		{
+			if(USB_INT_SUCCESS == CH376DiskMount())
+			{
+				break;
+			}
+			else
+			{
+				mdelay(200);
+			}
+		}	
+		else
+		{
+			mdelay(500);
+		}
+	}
 	
 	while (1)
 	{
@@ -36,6 +58,7 @@ int main(void)
 		if (time_100ms_flag == 1)
 		{
 			time_100ms_flag = 0;
+			sg_write();
 		}
 		
 		if (time_1000ms_flag == 1)

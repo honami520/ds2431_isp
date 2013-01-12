@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252" ?>
-<TKStudioProject Name="Project" BuildTool="15" ToolVer="default" Version="3.00" Author="YinHandong[Òüº®¶¬]">
+<TKStudioProject Name="Project" BuildTool="15" ToolVer="default" Version="3.00" Author="YinHandong[Òüº®¶¬]" ProjectGUID="{772E497B-B602-44cb-8BAF-78F4C34407B0}">
     <Configurations>
-        <Configuration Name="isp" OPTDBG="1,-1,1,1,1,0,()" DEVICE="STM32F103C8" VENDOR="STMicroelectronics" FAMINY="3" CPU='CPU=IRAM(0x20000000-0x20004FFF) IROM(0x8000000-0x800FFFF) CLOCK(8000000) CPUTYPE(&quot;Cortex-M3&quot;)' RGF='REGFILE=stm32f10x_lib.h(&quot;ST\STM32F10x&quot;)' MONDL='MON=SARMCM3.DLL TARMSTM.DLL(&quot;-pSTM32F10x&quot;)' SIMDL='SIM=SARMCM3.DLL  DARMSTM.DLL(&quot;-pSTM32F103C8&quot;)' SIMCLK="8.000000" OP="0" XROM="0,0,0,0#0,0,0,0#0,0,0,0" XRAM="0,0,0,0#0,0,0,0#0,0,0,0" OldName="isp" OutBig="0" McLib="1" CLK="24.000000" Cross="0" IROM="1,0x08000000,0x00010000,1#0,0,0,0" IRAM="1,0x20000000,0x00005000,0#0,0,0,0" OldCPU="STM32F103C8">
+        <Configuration Name="isp" OPTDBG="1,-1,1,0,1,1,()" DEVICE="STM32F103C8" VENDOR="STMicroelectronics" FAMINY="3" CPU='CPU=IRAM(0x20000000-0x20004FFF) IROM(0x8000000-0x800FFFF) CLOCK(8000000) CPUTYPE(&quot;Cortex-M3&quot;)' RGF='REGFILE=stm32f10x_lib.h(&quot;ST\STM32F10x&quot;)' MONDL='MON=SARMCM3.DLL TARMSTM.DLL(&quot;-pSTM32F10x&quot;)' SIMDL='SIM=SARMCM3.DLL  DARMSTM.DLL(&quot;-pSTM32F103C8&quot;)' SIMCLK="24.000000" OP="0" XROM="0,0,0,0#0,0,0,0#0,0,0,0" XRAM="0,0,0,0#0,0,0,0#0,0,0,0" OldName="isp" OutBig="0" McLib="1" CLK="24.000000" Cross="0" IROM="1,0x08000000,0x00010000,1#0,0,0,0" IRAM="1,0x20000000,0x00005000,0#0,0,0,0" OldCPU="STM32F103C8">
             <MDK_Output OutName="0,.\isp\Project" OutType="1" OutBatch="0" OutHex="1" OutList="0,.\isp" Debug="1" Browse="0" />
             <MDK_User BfC="0,()#0,()" BfB="0,()#0,()" AfB="0,()#0,()" Beep="1" SDebug="0" />
             <MDK_CParam Def="USE_STDPERIPH_DRIVER  STM32F10X_MD" uDef="" Inc="..\usr;..\Libraries\CMSIS\CM3\CoreSupport;..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm;..\Libraries\STM32F10x_StdPeriph_Driver\src;..\Libraries\STM32F10x_StdPeriph_Driver\inc" Misc="" Opt="0,0" Code="0,1,0,1,0,0" Language="0,0,0,0" List="0" />
@@ -116,6 +116,9 @@
                 <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" />
                 <Header RelativePath="..\usr\key.h" />
                 <Header RelativePath="..\usr\tm1640.h" />
+                <Header RelativePath="..\usr\CH376.h" />
+                <Header RelativePath="..\usr\CH376INC.h" />
+                <Header RelativePath="..\usr\FILE_SYS.H" />
             </File>
             <File RelativePath="..\usr\key.c" FileType="1" Output="key.o" ro="0" bss="0" rw="0">
                 <Header RelativePath="..\usr\key.h" />
@@ -181,8 +184,73 @@
                 <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h" />
                 <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" />
             </File>
-            <File RelativePath="..\usr\CH376.c" FileType="1" Output="CH376.o" ro="0" bss="0" rw="0" />
-            <File RelativePath="..\usr\FILE_SYS.C" FileType="1" Output="FILE_SYS.o" ro="0" bss="0" rw="0" />
+            <File RelativePath="..\usr\CH376.c" FileType="1" Output="CH376.o" ro="0" bss="0" rw="0">
+                <Header RelativePath="..\usr\CH376.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\INC\ST\STM32F10x\stm32f10x.h" />
+                <Header RelativePath="..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\RV31\INC\stdint.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\INC\ST\STM32F10x\system_stm32f10x.h" />
+                <Header RelativePath="..\usr\stm32f10x_conf.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\INC\ST\STM32F10x\stm32f10x.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" />
+                <Header RelativePath="..\usr\CH376INC.h" />
+            </File>
+            <File RelativePath="..\usr\FILE_SYS.C" FileType="1" Output="FILE_SYS.o" ro="0" bss="0" rw="0">
+                <Header RelativePath="..\usr\FILE_SYS.H" />
+                <Header RelativePath="..\usr\CH376.H" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\INC\ST\STM32F10x\stm32f10x.h" />
+                <Header RelativePath="..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\RV31\INC\stdint.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\INC\ST\STM32F10x\system_stm32f10x.h" />
+                <Header RelativePath="..\usr\stm32f10x_conf.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h" />
+                <Header RelativePath="D:\Program Files\mdk453\ARM\INC\ST\STM32F10x\stm32f10x.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_bkp.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_can.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_cec.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_crc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dbgmcu.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dma.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_fsmc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_i2c.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_iwdg.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_pwr.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rtc.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_sdio.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h" />
+                <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" />
+                <Header RelativePath="..\usr\CH376INC.h" />
+            </File>
         </Filter>
         <Filter Name="cotex-m3">
             <File RelativePath="..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.c" FileType="1" Output="core_cm3.o" ro="0" bss="0" rw="0">

@@ -428,6 +428,21 @@
               <FileType>1</FileType>
               <FilePath>..\usr\system_stm32f10x.c</FilePath>
             </File>
+            <File>
+              <FileName>CH376.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\CH376.c</FilePath>
+            </File>
+            <File>
+              <FileName>FILE_SYS.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\FILE_SYS.C</FilePath>
+            </File>
+            <File>
+              <FileName>tm1640.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\tm1640.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

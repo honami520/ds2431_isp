@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\stm3210c-eval\startup_stm32f10x_md.o" F:\ds2431_isp\usr\STM32103.lib ".\stm3210c-eval\key.o" ".\stm3210c-eval\main.o" ".\stm3210c-eval\stm32f10x_it.o" ".\stm3210c-eval\system_stm32f10x.o" ".\stm3210c-eval\ch376.o" ".\stm3210c-eval\file_sys.o" ".\stm3210c-eval\tm1640.o" ".\stm3210c-eval\core_cm3.o" --library_type=microlib --strict --scatter ".\STM3210C-EVAL\STM32103.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\STM3210C-EVAL\STM32103.map" -o ".\STM3210C-EVAL\STM32103.axf"
