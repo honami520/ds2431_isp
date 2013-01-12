@@ -1,26 +1,13 @@
 #ifndef _KEY_H__
 #define _KEY_H__
 #include "stm32f10x.h"
-#include "device.h"
 
 
-#ifdef MY_BOARD
 
-#define LB_READ()		(GPIOA->IDR & 0x08)
-#define LT_READ()		(GPIOA->IDR & 0x10)
+#define KEY1_READ()		(GPIOC->IDR & GPIO_Pin_13)
+#define KEY2_READ()		(GPIOC->IDR & GPIO_Pin_14)
+#define KEY3_READ()		(GPIOC->IDR & GPIO_Pin_15)
 
-#else
-
-#define LB_READ()		(GPIOA->IDR & 0x08)
-#define RB_READ()		(GPIOA->IDR & 0x04)
-#define HAND1_READ()	(GPIOA->IDR & 0x40)
-#define HAND2_READ()	(GPIOA->IDR & 0x01)
-#define HAND3_READ()	(GPIOA->IDR & 0x02)
-#define FOOT1_READ()	(GPIOA->IDR & 0x80)
-#define FOOT2_READ()	(GPIOA->IDR & 0x10)
-#define FOOT3_READ()	(GPIOA->IDR & 0x20)
-
-#endif
 
 
 

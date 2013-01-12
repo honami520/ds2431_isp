@@ -14,8 +14,10 @@ void systick_init(void)
 int main(void)
 {
 	systick_init();
-	out_init();
 	key_init();
+	tm1640_init();
+	mdelay(100);
+	CH376_HOST_INIT();
 	
 	while (1)
 	{
@@ -24,7 +26,6 @@ int main(void)
 			time_1ms_flag = 0;
 			key_scan();
 			key_done();
-			out_func();
 		}
 		
 		if (time_10ms_flag == 1)

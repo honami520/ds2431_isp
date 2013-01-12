@@ -419,11 +419,6 @@
               <FilePath>..\usr\main.c</FilePath>
             </File>
             <File>
-              <FileName>out.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\usr\out.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\usr\stm32f10x_it.c</FilePath>

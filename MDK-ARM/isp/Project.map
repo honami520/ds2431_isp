@@ -1,0 +1,695 @@
+ARM Linker, 4.1 [Build 894] [Standard][RL-ARM]
+
+==============================================================================
+
+Section Cross References
+
+    startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
+    startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.NMI_Handler) for NMI_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.HardFault_Handler) for HardFault_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.MemManage_Handler) for MemManage_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.BusFault_Handler) for BusFault_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.UsageFault_Handler) for UsageFault_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.SVC_Handler) for SVC_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.DebugMon_Handler) for DebugMon_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.PendSV_Handler) for PendSV_Handler
+    startup_stm32f10x_md.o(RESET) refers to stm32f10x_it.o(i.SysTick_Handler) for SysTick_Handler
+    startup_stm32f10x_md.o(.text) refers to system_stm32f10x.o(i.SystemInit) for SystemInit
+    startup_stm32f10x_md.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    system_stm32f10x.o(i.SetSysClock) refers to system_stm32f10x.o(i.SetSysClockTo72) for SetSysClockTo72
+    system_stm32f10x.o(i.SystemCoreClockUpdate) refers to system_stm32f10x.o(.data) for SystemCoreClock
+    system_stm32f10x.o(i.SystemInit) refers to system_stm32f10x.o(i.SetSysClock) for SetSysClock
+    stm32f10x_it.o(i.SysTick_Handler) refers to stm32f10x_it.o(.data) for i
+    stm32f10x_it.o(i.SysTick_Handler) refers to main.o(.data) for time_1ms_flag
+    main.o(i.main) refers to main.o(i.systick_init) for systick_init
+    main.o(i.main) refers to key.o(i.key_init) for key_init
+    main.o(i.main) refers to tm1640.o(i.tm1640_init) for tm1640_init
+    main.o(i.main) refers to tm1640.o(i.mdelay) for mdelay
+    main.o(i.main) refers to CH376.o(i.CH376_HOST_INIT) for CH376_HOST_INIT
+    main.o(i.main) refers to key.o(i.key_scan) for key_scan
+    main.o(i.main) refers to key.o(i.key_done) for key_done
+    main.o(i.main) refers to main.o(.data) for time_1ms_flag
+    main.o(i.systick_init) refers to system_stm32f10x.o(.data) for SystemCoreClock
+    key.o(i.key_done) refers to main.o(.data) for key1_flag
+    key.o(i.key_init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    key.o(i.key_init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    key.o(i.key_scan) refers to main.o(.data) for key1_num
+    tm1640.o(i.seg_blink_handle) refers to main.o(.bss) for seg_blink
+    tm1640.o(i.seg_blink_handle) refers to tm1640.o(.data) for step
+    tm1640.o(i.sg_write) refers to tm1640.o(i.write_cmd) for write_cmd
+    tm1640.o(i.sg_write) refers to tm1640.o(i.write_dat) for write_dat
+    tm1640.o(i.sg_write) refers to main.o(.bss) for seg_buf
+    tm1640.o(i.tm1640_init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    tm1640.o(i.tm1640_init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    tm1640.o(i.tm1640_start) refers to tm1640.o(i.udelay) for udelay
+    tm1640.o(i.tm1640_stop) refers to tm1640.o(i.udelay) for udelay
+    tm1640.o(i.tm1640_write_byte) refers to tm1640.o(i.udelay) for udelay
+    tm1640.o(i.write_cmd) refers to tm1640.o(i.tm1640_start) for tm1640_start
+    tm1640.o(i.write_cmd) refers to tm1640.o(i.tm1640_write_byte) for tm1640_write_byte
+    tm1640.o(i.write_cmd) refers to tm1640.o(i.tm1640_stop) for tm1640_stop
+    tm1640.o(i.write_dat) refers to tm1640.o(i.tm1640_start) for tm1640_start
+    tm1640.o(i.write_dat) refers to tm1640.o(i.tm1640_write_byte) for tm1640_write_byte
+    tm1640.o(i.write_dat) refers to tm1640.o(i.tm1640_stop) for tm1640_stop
+    CH376.o(i.CH376_DISK_CONNECT) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    CH376.o(i.CH376_DISK_CONNECT) refers to CH376.o(i.wait_interrupt) for wait_interrupt
+    CH376.o(i.CH376_DISK_CONNECT) refers to CH376.o(i.delay_ms) for delay_ms
+    CH376.o(i.CH376_DISK_CONNECT) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    CH376.o(i.CH376_DISK_MOUNT) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    CH376.o(i.CH376_DISK_MOUNT) refers to CH376.o(i.wait_interrupt) for wait_interrupt
+    CH376.o(i.CH376_DISK_MOUNT) refers to CH376.o(i.delay_ms) for delay_ms
+    CH376.o(i.CH376_DISK_MOUNT) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    CH376.o(i.CH376_HOST_INIT) refers to CH376.o(i.CH376_SPI_Init) for CH376_SPI_Init
+    CH376.o(i.CH376_HOST_INIT) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    CH376.o(i.CH376_HOST_INIT) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    CH376.o(i.CH376_HOST_INIT) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    CH376.o(i.CH376_HOST_INIT) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    CH376.o(i.CH376_HOST_INIT) refers to CH376.o(i.delay_ms) for delay_ms
+    CH376.o(i.CH376_RD_DAT_PORT) refers to CH376.o(i.CH376_ReadWriteByte) for CH376_ReadWriteByte
+    CH376.o(i.CH376_ReadWriteByte) refers to stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus) for SPI_I2S_GetFlagStatus
+    CH376.o(i.CH376_ReadWriteByte) refers to stm32f10x_spi.o(i.SPI_I2S_SendData) for SPI_I2S_SendData
+    CH376.o(i.CH376_ReadWriteByte) refers to stm32f10x_spi.o(i.SPI_I2S_ReceiveData) for SPI_I2S_ReceiveData
+    CH376.o(i.CH376_SPI_Init) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    CH376.o(i.CH376_SPI_Init) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
+    CH376.o(i.CH376_SPI_Init) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    CH376.o(i.CH376_SPI_Init) refers to stm32f10x_spi.o(i.SPI_Init) for SPI_Init
+    CH376.o(i.CH376_SPI_Init) refers to stm32f10x_spi.o(i.SPI_Cmd) for SPI_Cmd
+    CH376.o(i.CH376_WR_CMD_PORT) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    CH376.o(i.CH376_WR_CMD_PORT) refers to CH376.o(i.delay_us) for delay_us
+    CH376.o(i.CH376_WR_CMD_PORT) refers to stm32f10x_gpio.o(i.GPIO_ResetBits) for GPIO_ResetBits
+    CH376.o(i.CH376_WR_CMD_PORT) refers to CH376.o(i.CH376_ReadWriteByte) for CH376_ReadWriteByte
+    CH376.o(i.CH376_WR_DAT_PORT) refers to CH376.o(i.CH376_ReadWriteByte) for CH376_ReadWriteByte
+    CH376.o(i.READ_CH376_VERSION) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    CH376.o(i.READ_CH376_VERSION) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    CH376.o(i.READ_CH376_VERSION) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    CH376.o(i.delay_ms) refers to CH376.o(i.delay_us) for delay_us
+    CH376.o(i.wait_interrupt) refers to stm32f10x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
+    CH376.o(i.wait_interrupt) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    CH376.o(i.wait_interrupt) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376ByteLocate) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376ByteLocate) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376ByteLocate) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376ByteLocate) refers to FILE_SYS.o(i.Wait376Interrupt) for Wait376Interrupt
+    FILE_SYS.o(i.CH376ByteRead) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376ByteRead) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376ByteRead) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376ByteRead) refers to FILE_SYS.o(i.Wait376Interrupt) for Wait376Interrupt
+    FILE_SYS.o(i.CH376ByteRead) refers to FILE_SYS.o(i.CH376ReadBlock) for CH376ReadBlock
+    FILE_SYS.o(i.CH376ByteWrite) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376ByteWrite) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376ByteWrite) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376ByteWrite) refers to FILE_SYS.o(i.Wait376Interrupt) for Wait376Interrupt
+    FILE_SYS.o(i.CH376ByteWrite) refers to FILE_SYS.o(i.CH376WriteReqBlock) for CH376WriteReqBlock
+    FILE_SYS.o(i.CH376DirCreate) refers to FILE_SYS.o(i.CH376SetFileName) for CH376SetFileName
+    FILE_SYS.o(i.CH376DirCreate) refers to FILE_SYS.o(i.CH376WriteVar32) for CH376WriteVar32
+    FILE_SYS.o(i.CH376DirCreate) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376DirInfoRead) refers to FILE_SYS.o(i.CH376SendCmdDatWaitInt) for CH376SendCmdDatWaitInt
+    FILE_SYS.o(i.CH376DirInfoSave) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376DiskCapacity) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376DiskCapacity) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376DiskCapacity) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376DiskCapacity) refers to FILE_SYS.o(i.CH376Read32bitDat) for CH376Read32bitDat
+    FILE_SYS.o(i.CH376DiskConnect) refers to CH376.o(i.CH376_DISK_CONNECT) for CH376_DISK_CONNECT
+    FILE_SYS.o(i.CH376DiskMount) refers to CH376.o(i.CH376_DISK_MOUNT) for CH376_DISK_MOUNT
+    FILE_SYS.o(i.CH376DiskQuery) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376DiskQuery) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376DiskQuery) refers to FILE_SYS.o(i.CH376ReadVar8) for CH376ReadVar8
+    FILE_SYS.o(i.CH376DiskQuery) refers to FILE_SYS.o(i.CH376WriteVar8) for CH376WriteVar8
+    FILE_SYS.o(i.CH376DiskQuery) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376DiskQuery) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376DiskReqSense) refers to CH376.o(i.delay_ms) for delay_ms
+    FILE_SYS.o(i.CH376DiskReqSense) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376EndDirInfo) refers to FILE_SYS.o(i.CH376WriteVar8) for CH376WriteVar8
+    FILE_SYS.o(i.CH376FileClose) refers to FILE_SYS.o(i.CH376SendCmdDatWaitInt) for CH376SendCmdDatWaitInt
+    FILE_SYS.o(i.CH376FileClose) refers to CH376.o(i.delay_ms) for delay_ms
+    FILE_SYS.o(i.CH376FileCreate) refers to FILE_SYS.o(i.CH376SetFileName) for CH376SetFileName
+    FILE_SYS.o(i.CH376FileCreate) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376FileCreate) refers to CH376.o(i.delay_ms) for delay_ms
+    FILE_SYS.o(i.CH376FileCreatePath) refers to FILE_SYS.o(i.CH376SeparatePath) for CH376SeparatePath
+    FILE_SYS.o(i.CH376FileCreatePath) refers to FILE_SYS.o(i.CH376FileOpenDir) for CH376FileOpenDir
+    FILE_SYS.o(i.CH376FileCreatePath) refers to FILE_SYS.o(i.CH376FileCreate) for CH376FileCreate
+    FILE_SYS.o(i.CH376FileErase) refers to FILE_SYS.o(i.CH376FileOpenPath) for CH376FileOpenPath
+    FILE_SYS.o(i.CH376FileErase) refers to FILE_SYS.o(i.CH376SetFileName) for CH376SetFileName
+    FILE_SYS.o(i.CH376FileErase) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376FileOpen) refers to FILE_SYS.o(i.CH376SetFileName) for CH376SetFileName
+    FILE_SYS.o(i.CH376FileOpen) refers to FILE_SYS.o(i.CH376WriteVar32) for CH376WriteVar32
+    FILE_SYS.o(i.CH376FileOpen) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376FileOpenDir) refers to FILE_SYS.o(i.CH376FileOpen) for CH376FileOpen
+    FILE_SYS.o(i.CH376FileOpenPath) refers to FILE_SYS.o(i.CH376FileOpenDir) for CH376FileOpenDir
+    FILE_SYS.o(i.CH376GetDiskStatus) refers to FILE_SYS.o(i.CH376ReadVar8) for CH376ReadVar8
+    FILE_SYS.o(i.CH376GetFileSize) refers to FILE_SYS.o(i.CH376ReadVar32) for CH376ReadVar32
+    FILE_SYS.o(i.CH376GetIntStatus) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376GetIntStatus) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376GetIntStatus) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376Read32bitDat) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376Read32bitDat) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376ReadBlock) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376ReadBlock) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376ReadBlock) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376ReadVar32) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376ReadVar32) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376ReadVar32) refers to FILE_SYS.o(i.CH376Read32bitDat) for CH376Read32bitDat
+    FILE_SYS.o(i.CH376ReadVar8) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376ReadVar8) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376ReadVar8) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376ReadVar8) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376SecLocate) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376SecLocate) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376SecLocate) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376SecLocate) refers to FILE_SYS.o(i.Wait376Interrupt) for Wait376Interrupt
+    FILE_SYS.o(i.CH376SendCmdDatWaitInt) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376SendCmdDatWaitInt) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376SendCmdDatWaitInt) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376SendCmdDatWaitInt) refers to CH376.o(i.delay_us) for delay_us
+    FILE_SYS.o(i.CH376SendCmdDatWaitInt) refers to FILE_SYS.o(i.Wait376Interrupt) for Wait376Interrupt
+    FILE_SYS.o(i.CH376SendCmdWaitInt) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376SendCmdWaitInt) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376SendCmdWaitInt) refers to CH376.o(i.delay_us) for delay_us
+    FILE_SYS.o(i.CH376SendCmdWaitInt) refers to FILE_SYS.o(i.Wait376Interrupt) for Wait376Interrupt
+    FILE_SYS.o(i.CH376SetFileName) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376SetFileName) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376SetFileName) refers to FILE_SYS.o(i.CH376ReadVar8) for CH376ReadVar8
+    FILE_SYS.o(i.CH376SetFileName) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376SetFileName) refers to FILE_SYS.o(i.CH376SendCmdWaitInt) for CH376SendCmdWaitInt
+    FILE_SYS.o(i.CH376SetFileName) refers to FILE_SYS.o(i.CH376ReadVar32) for CH376ReadVar32
+    FILE_SYS.o(i.CH376SetFileName) refers to FILE_SYS.o(i.CH376WriteVar32) for CH376WriteVar32
+    FILE_SYS.o(i.CH376SetFileName) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376WriteHostBlock) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376WriteHostBlock) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376WriteHostBlock) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376WriteOfsBlock) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376WriteOfsBlock) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376WriteOfsBlock) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376WriteReqBlock) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376WriteReqBlock) refers to CH376.o(i.CH376_RD_DAT_PORT) for CH376_RD_DAT_PORT
+    FILE_SYS.o(i.CH376WriteReqBlock) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376WriteReqBlock) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376WriteVar32) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376WriteVar32) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376WriteVar32) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.CH376WriteVar8) refers to CH376.o(i.CH376_WR_CMD_PORT) for CH376_WR_CMD_PORT
+    FILE_SYS.o(i.CH376WriteVar8) refers to CH376.o(i.CH376_WR_DAT_PORT) for CH376_WR_DAT_PORT
+    FILE_SYS.o(i.CH376WriteVar8) refers to stm32f10x_gpio.o(i.GPIO_SetBits) for GPIO_SetBits
+    FILE_SYS.o(i.Wait376Interrupt) refers to CH376.o(i.wait_interrupt) for wait_interrupt
+    stm32f10x_gpio.o(i.GPIO_AFIODeInit) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    stm32f10x_gpio.o(i.GPIO_DeInit) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    stm32f10x_rcc.o(i.RCC_GetClocksFreq) refers to stm32f10x_rcc.o(.data) for APBAHBPrescTable
+    stm32f10x_rcc.o(i.RCC_WaitForHSEStartUp) refers to stm32f10x_rcc.o(i.RCC_GetFlagStatus) for RCC_GetFlagStatus
+    stm32f10x_spi.o(i.I2S_Init) refers to stm32f10x_rcc.o(i.RCC_GetClocksFreq) for RCC_GetClocksFreq
+    stm32f10x_spi.o(i.SPI_I2S_DeInit) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    stm32f10x_spi.o(i.SPI_I2S_DeInit) refers to stm32f10x_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8.o(.ARM.Collect$$$$00000009) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry8.o(.ARM.Collect$$$$00000009) refers to main.o(i.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing startup_stm32f10x_md.o(HEAP), (512 bytes).
+    Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (164 bytes).
+    Removing main.o(.bss), (1136 bytes).
+    Removing tm1640.o(i.seg_blink_handle), (84 bytes).
+    Removing tm1640.o(i.sg_write), (28 bytes).
+    Removing tm1640.o(i.tm1640_start), (76 bytes).
+    Removing tm1640.o(i.tm1640_stop), (80 bytes).
+    Removing tm1640.o(i.tm1640_write_byte), (104 bytes).
+    Removing tm1640.o(i.udelay), (24 bytes).
+    Removing tm1640.o(i.write_cmd), (20 bytes).
+    Removing tm1640.o(i.write_dat), (40 bytes).
+    Removing tm1640.o(.data), (1 bytes).
+    Removing CH376.o(i.CH376_DISK_CONNECT), (56 bytes).
+    Removing CH376.o(i.CH376_DISK_MOUNT), (56 bytes).
+    Removing CH376.o(i.READ_CH376_VERSION), (32 bytes).
+    Removing CH376.o(i.wait_interrupt), (32 bytes).
+    Removing FILE_SYS.o(i.CH376ByteLocate), (56 bytes).
+    Removing FILE_SYS.o(i.CH376ByteRead), (100 bytes).
+    Removing FILE_SYS.o(i.CH376ByteWrite), (100 bytes).
+    Removing FILE_SYS.o(i.CH376DirCreate), (38 bytes).
+    Removing FILE_SYS.o(i.CH376DirInfoRead), (12 bytes).
+    Removing FILE_SYS.o(i.CH376DirInfoSave), (10 bytes).
+    Removing FILE_SYS.o(i.CH376DiskCapacity), (42 bytes).
+    Removing FILE_SYS.o(i.CH376DiskConnect), (8 bytes).
+    Removing FILE_SYS.o(i.CH376DiskMount), (8 bytes).
+    Removing FILE_SYS.o(i.CH376DiskQuery), (144 bytes).
+    Removing FILE_SYS.o(i.CH376DiskReqSense), (26 bytes).
+    Removing FILE_SYS.o(i.CH376EndDirInfo), (12 bytes).
+    Removing FILE_SYS.o(i.CH376FileClose), (44 bytes).
+    Removing FILE_SYS.o(i.CH376FileCreate), (50 bytes).
+    Removing FILE_SYS.o(i.CH376FileCreatePath), (56 bytes).
+    Removing FILE_SYS.o(i.CH376FileErase), (70 bytes).
+    Removing FILE_SYS.o(i.CH376FileOpen), (38 bytes).
+    Removing FILE_SYS.o(i.CH376FileOpenDir), (100 bytes).
+    Removing FILE_SYS.o(i.CH376FileOpenPath), (14 bytes).
+    Removing FILE_SYS.o(i.CH376GetDiskStatus), (10 bytes).
+    Removing FILE_SYS.o(i.CH376GetFileSize), (10 bytes).
+    Removing FILE_SYS.o(i.CH376GetIntStatus), (32 bytes).
+    Removing FILE_SYS.o(i.CH376Read32bitDat), (56 bytes).
+    Removing FILE_SYS.o(i.CH376ReadBlock), (56 bytes).
+    Removing FILE_SYS.o(i.CH376ReadVar32), (22 bytes).
+    Removing FILE_SYS.o(i.CH376ReadVar8), (40 bytes).
+    Removing FILE_SYS.o(i.CH376SecLocate), (56 bytes).
+    Removing FILE_SYS.o(i.CH376SendCmdDatWaitInt), (44 bytes).
+    Removing FILE_SYS.o(i.CH376SendCmdWaitInt), (36 bytes).
+    Removing FILE_SYS.o(i.CH376SeparatePath), (46 bytes).
+    Removing FILE_SYS.o(i.CH376SetFileName), (184 bytes).
+    Removing FILE_SYS.o(i.CH376WriteHostBlock), (52 bytes).
+    Removing FILE_SYS.o(i.CH376WriteOfsBlock), (60 bytes).
+    Removing FILE_SYS.o(i.CH376WriteReqBlock), (56 bytes).
+    Removing FILE_SYS.o(i.CH376WriteVar32), (60 bytes).
+    Removing FILE_SYS.o(i.CH376WriteVar8), (40 bytes).
+    Removing FILE_SYS.o(i.Wait376Interrupt), (8 bytes).
+    Removing core_cm3.o(.emb_text), (32 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_AFIODeInit), (20 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_DeInit), (200 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ETH_MediaInterfaceConfig), (12 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_EXTILineConfig), (64 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_EventOutputCmd), (12 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_EventOutputConfig), (32 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_PinLockConfig), (18 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_PinRemapConfig), (144 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadInputData), (8 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadInputDataBit), (18 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadOutputData), (8 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadOutputDataBit), (18 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_StructInit), (16 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_Write), (4 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_WriteBit), (10 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ADCCLKConfig), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd), (32 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd), (32 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_APB1PeriphResetCmd), (32 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_APB2PeriphResetCmd), (32 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_AdjustHSICalibrationValue), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_BackupResetCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ClearFlag), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ClearITPendingBit), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ClockSecuritySystemCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_DeInit), (76 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetClocksFreq), (212 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetFlagStatus), (60 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetITStatus), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetSYSCLKSource), (16 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_HCLKConfig), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_HSEConfig), (76 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_HSICmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ITConfig), (36 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_LSEConfig), (52 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_LSICmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_MCOConfig), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PCLK1Config), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PCLK2Config), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PLLCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PLLConfig), (28 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_RTCCLKCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_RTCCLKConfig), (16 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_SYSCLKConfig), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_USBCLKConfig), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_WaitForHSEStartUp), (48 bytes).
+    Removing stm32f10x_rcc.o(.data), (20 bytes).
+    Removing stm32f10x_spi.o(i.I2S_Cmd), (24 bytes).
+    Removing stm32f10x_spi.o(i.I2S_Init), (228 bytes).
+    Removing stm32f10x_spi.o(i.I2S_StructInit), (20 bytes).
+    Removing stm32f10x_spi.o(i.SPI_BiDirectionalLineConfig), (28 bytes).
+    Removing stm32f10x_spi.o(i.SPI_CalculateCRC), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_DataSizeConfig), (18 bytes).
+    Removing stm32f10x_spi.o(i.SPI_GetCRC), (16 bytes).
+    Removing stm32f10x_spi.o(i.SPI_GetCRCPolynomial), (6 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ClearFlag), (6 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ClearITPendingBit), (20 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_DMACmd), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_DeInit), (88 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_GetITStatus), (52 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ITConfig), (36 bytes).
+    Removing stm32f10x_spi.o(i.SPI_NSSInternalSoftwareConfig), (30 bytes).
+    Removing stm32f10x_spi.o(i.SPI_SSOutputCmd), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_StructInit), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_TransmitCRC), (10 bytes).
+
+119 unused section(s) (total 6599 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry5.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry2.o ABSOLUTE
+    ../../microlib/init/entry.s              0x00000000   Number         0  entry8.o ABSOLUTE
+    ..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.c 0x00000000   Number         0  core_cm3.o ABSOLUTE
+    ..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_md.s 0x00000000   Number         0  startup_stm32f10x_md.o ABSOLUTE
+    ..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c 0x00000000   Number         0  stm32f10x_gpio.o ABSOLUTE
+    ..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c 0x00000000   Number         0  stm32f10x_rcc.o ABSOLUTE
+    ..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c 0x00000000   Number         0  stm32f10x_spi.o ABSOLUTE
+    ..\\Libraries\\CMSIS\\CM3\\CoreSupport\\core_cm3.c 0x00000000   Number         0  core_cm3.o ABSOLUTE
+    ..\usr\CH376.c                           0x00000000   Number         0  CH376.o ABSOLUTE
+    ..\usr\FILE_SYS.C                        0x00000000   Number         0  FILE_SYS.o ABSOLUTE
+    ..\usr\key.c                             0x00000000   Number         0  key.o ABSOLUTE
+    ..\usr\main.c                            0x00000000   Number         0  main.o ABSOLUTE
+    ..\usr\stm32f10x_it.c                    0x00000000   Number         0  stm32f10x_it.o ABSOLUTE
+    ..\usr\system_stm32f10x.c                0x00000000   Number         0  system_stm32f10x.o ABSOLUTE
+    ..\usr\tm1640.c                          0x00000000   Number         0  tm1640.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    RESET                                    0x08000000   Section      236  startup_stm32f10x_md.o(RESET)
+    .ARM.Collect$$$$00000000                 0x080000ec   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x080000ec   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x080000f0   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x080000f4   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$00000009                 0x080000f4   Section        8  entry8.o(.ARM.Collect$$$$00000009)
+    .ARM.Collect$$$$00002712                 0x080000fc   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    __lit__00000000                          0x080000fc   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .text                                    0x08000100   Section       36  startup_stm32f10x_md.o(.text)
+    .text                                    0x08000124   Section       36  init.o(.text)
+    i.BusFault_Handler                       0x08000148   Section        0  stm32f10x_it.o(i.BusFault_Handler)
+    i.CH376_HOST_INIT                        0x0800014c   Section        0  CH376.o(i.CH376_HOST_INIT)
+    i.CH376_RD_DAT_PORT                      0x080001a4   Section        0  CH376.o(i.CH376_RD_DAT_PORT)
+    i.CH376_ReadWriteByte                    0x080001b0   Section        0  CH376.o(i.CH376_ReadWriteByte)
+    i.CH376_SPI_Init                         0x080001f4   Section        0  CH376.o(i.CH376_SPI_Init)
+    i.CH376_WR_CMD_PORT                      0x080002ac   Section        0  CH376.o(i.CH376_WR_CMD_PORT)
+    i.CH376_WR_DAT_PORT                      0x080002d8   Section        0  CH376.o(i.CH376_WR_DAT_PORT)
+    i.DebugMon_Handler                       0x080002e4   Section        0  stm32f10x_it.o(i.DebugMon_Handler)
+    i.GPIO_Init                              0x080002e6   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
+    i.GPIO_ResetBits                         0x080003f8   Section        0  stm32f10x_gpio.o(i.GPIO_ResetBits)
+    i.GPIO_SetBits                           0x080003fc   Section        0  stm32f10x_gpio.o(i.GPIO_SetBits)
+    i.HardFault_Handler                      0x08000400   Section        0  stm32f10x_it.o(i.HardFault_Handler)
+    i.MemManage_Handler                      0x08000404   Section        0  stm32f10x_it.o(i.MemManage_Handler)
+    i.NMI_Handler                            0x08000408   Section        0  stm32f10x_it.o(i.NMI_Handler)
+    i.PendSV_Handler                         0x0800040a   Section        0  stm32f10x_it.o(i.PendSV_Handler)
+    i.RCC_APB2PeriphClockCmd                 0x0800040c   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.SPI_Cmd                                0x0800042c   Section        0  stm32f10x_spi.o(i.SPI_Cmd)
+    i.SPI_I2S_GetFlagStatus                  0x08000444   Section        0  stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus)
+    i.SPI_I2S_ReceiveData                    0x08000456   Section        0  stm32f10x_spi.o(i.SPI_I2S_ReceiveData)
+    i.SPI_I2S_SendData                       0x0800045c   Section        0  stm32f10x_spi.o(i.SPI_I2S_SendData)
+    i.SPI_Init                               0x08000460   Section        0  stm32f10x_spi.o(i.SPI_Init)
+    i.SVC_Handler                            0x0800049c   Section        0  stm32f10x_it.o(i.SVC_Handler)
+    i.SetSysClock                            0x0800049e   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x0800049f   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x080004a8   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x080004a9   Thumb Code   192  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SysTick_Handler                        0x08000570   Section        0  stm32f10x_it.o(i.SysTick_Handler)
+    i.SystemInit                             0x080005dc   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.UsageFault_Handler                     0x0800063c   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
+    i.__scatterload_copy                     0x08000640   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800064e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08000650   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.delay_ms                               0x0800065e   Section        0  CH376.o(i.delay_ms)
+    i.delay_us                               0x08000676   Section        0  CH376.o(i.delay_us)
+    i.key_done                               0x08000690   Section        0  key.o(i.key_done)
+    i.key_init                               0x080006c8   Section        0  key.o(i.key_init)
+    i.key_scan                               0x080006f0   Section        0  key.o(i.key_scan)
+    i.main                                   0x0800078c   Section        0  main.o(i.main)
+    i.mdelay                                 0x080007f8   Section        0  tm1640.o(i.mdelay)
+    i.systick_init                           0x08000814   Section        0  main.o(i.systick_init)
+    i.tm1640_init                            0x0800087c   Section        0  tm1640.o(i.tm1640_init)
+    .data                                    0x20000000   Section       20  system_stm32f10x.o(.data)
+    .data                                    0x20000014   Section        4  stm32f10x_it.o(.data)
+    i                                        0x20000014   Data           4  stm32f10x_it.o(.data)
+    .data                                    0x20000018   Section       56  main.o(.data)
+    STACK                                    0x20000050   Section     1024  startup_stm32f10x_md.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    __Vectors_Size                           0x000000ec   Number         0  startup_stm32f10x_md.o ABSOLUTE
+    __Vectors                                0x08000000   Data           4  startup_stm32f10x_md.o(RESET)
+    __Vectors_End                            0x080000ec   Data           0  startup_stm32f10x_md.o(RESET)
+    __main                                   0x080000ed   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x080000ed   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x080000f1   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x080000f5   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x080000f5   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_init                               0x080000f5   Thumb Code     0  entry8.o(.ARM.Collect$$$$00000009)
+    Reset_Handler                            0x08000101   Thumb Code     8  startup_stm32f10x_md.o(.text)
+    ADC1_2_IRQHandler                        0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    CAN1_RX1_IRQHandler                      0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    CAN1_SCE_IRQHandler                      0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel1_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel2_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel3_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel4_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel5_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel6_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    DMA1_Channel7_IRQHandler                 0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI0_IRQHandler                         0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI15_10_IRQHandler                     0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI1_IRQHandler                         0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI2_IRQHandler                         0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI3_IRQHandler                         0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI4_IRQHandler                         0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    EXTI9_5_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    FLASH_IRQHandler                         0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C1_ER_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C1_EV_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C2_ER_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    I2C2_EV_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    PVD_IRQHandler                           0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    RCC_IRQHandler                           0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    RTCAlarm_IRQHandler                      0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    RTC_IRQHandler                           0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    SPI1_IRQHandler                          0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    SPI2_IRQHandler                          0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TAMPER_IRQHandler                        0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_BRK_IRQHandler                      0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_CC_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_TRG_COM_IRQHandler                  0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM1_UP_IRQHandler                       0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM2_IRQHandler                          0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM3_IRQHandler                          0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    TIM4_IRQHandler                          0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USART1_IRQHandler                        0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USART2_IRQHandler                        0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USART3_IRQHandler                        0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USBWakeUp_IRQHandler                     0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USB_HP_CAN1_TX_IRQHandler                0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    USB_LP_CAN1_RX0_IRQHandler               0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    WWDG_IRQHandler                          0x0800011b   Thumb Code     0  startup_stm32f10x_md.o(.text)
+    __scatterload                            0x08000125   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x08000125   Thumb Code     0  init.o(.text)
+    BusFault_Handler                         0x08000149   Thumb Code     4  stm32f10x_it.o(i.BusFault_Handler)
+    CH376_HOST_INIT                          0x0800014d   Thumb Code    84  CH376.o(i.CH376_HOST_INIT)
+    CH376_RD_DAT_PORT                        0x080001a5   Thumb Code    10  CH376.o(i.CH376_RD_DAT_PORT)
+    CH376_ReadWriteByte                      0x080001b1   Thumb Code    62  CH376.o(i.CH376_ReadWriteByte)
+    CH376_SPI_Init                           0x080001f5   Thumb Code   174  CH376.o(i.CH376_SPI_Init)
+    CH376_WR_CMD_PORT                        0x080002ad   Thumb Code    40  CH376.o(i.CH376_WR_CMD_PORT)
+    CH376_WR_DAT_PORT                        0x080002d9   Thumb Code    12  CH376.o(i.CH376_WR_DAT_PORT)
+    DebugMon_Handler                         0x080002e5   Thumb Code     2  stm32f10x_it.o(i.DebugMon_Handler)
+    GPIO_Init                                0x080002e7   Thumb Code   274  stm32f10x_gpio.o(i.GPIO_Init)
+    GPIO_ResetBits                           0x080003f9   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_ResetBits)
+    GPIO_SetBits                             0x080003fd   Thumb Code     4  stm32f10x_gpio.o(i.GPIO_SetBits)
+    HardFault_Handler                        0x08000401   Thumb Code     4  stm32f10x_it.o(i.HardFault_Handler)
+    MemManage_Handler                        0x08000405   Thumb Code     4  stm32f10x_it.o(i.MemManage_Handler)
+    NMI_Handler                              0x08000409   Thumb Code     2  stm32f10x_it.o(i.NMI_Handler)
+    PendSV_Handler                           0x0800040b   Thumb Code     2  stm32f10x_it.o(i.PendSV_Handler)
+    RCC_APB2PeriphClockCmd                   0x0800040d   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    SPI_Cmd                                  0x0800042d   Thumb Code    24  stm32f10x_spi.o(i.SPI_Cmd)
+    SPI_I2S_GetFlagStatus                    0x08000445   Thumb Code    18  stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus)
+    SPI_I2S_ReceiveData                      0x08000457   Thumb Code     6  stm32f10x_spi.o(i.SPI_I2S_ReceiveData)
+    SPI_I2S_SendData                         0x0800045d   Thumb Code     4  stm32f10x_spi.o(i.SPI_I2S_SendData)
+    SPI_Init                                 0x08000461   Thumb Code    60  stm32f10x_spi.o(i.SPI_Init)
+    SVC_Handler                              0x0800049d   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
+    SysTick_Handler                          0x08000571   Thumb Code    86  stm32f10x_it.o(i.SysTick_Handler)
+    SystemInit                               0x080005dd   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    UsageFault_Handler                       0x0800063d   Thumb Code     4  stm32f10x_it.o(i.UsageFault_Handler)
+    __scatterload_copy                       0x08000641   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800064f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08000651   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    delay_ms                                 0x0800065f   Thumb Code    24  CH376.o(i.delay_ms)
+    delay_us                                 0x08000677   Thumb Code    24  CH376.o(i.delay_us)
+    key_done                                 0x08000691   Thumb Code    44  key.o(i.key_done)
+    key_init                                 0x080006c9   Thumb Code    34  key.o(i.key_init)
+    key_scan                                 0x080006f1   Thumb Code   128  key.o(i.key_scan)
+    main                                     0x0800078d   Thumb Code    90  main.o(i.main)
+    mdelay                                   0x080007f9   Thumb Code    26  tm1640.o(i.mdelay)
+    systick_init                             0x08000815   Thumb Code    92  main.o(i.systick_init)
+    tm1640_init                              0x0800087d   Thumb Code    38  tm1640.o(i.tm1640_init)
+    Region$$Table$$Base                      0x080008a8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080008c8   Number         0  anon$$obj.o(Region$$Table)
+    SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data)
+    AHBPrescTable                            0x20000004   Data          16  system_stm32f10x.o(.data)
+    seg_dat                                  0x20000018   Data          28  main.o(.data)
+    key1_num                                 0x20000034   Data           2  main.o(.data)
+    key2_num                                 0x20000036   Data           2  main.o(.data)
+    key3_num                                 0x20000038   Data           2  main.o(.data)
+    key1_flag                                0x2000003a   Data           1  main.o(.data)
+    key2_flag                                0x2000003b   Data           1  main.o(.data)
+    key3_flag                                0x2000003c   Data           1  main.o(.data)
+    time_1ms_flag                            0x2000003d   Data           1  main.o(.data)
+    time_10ms_flag                           0x2000003e   Data           1  main.o(.data)
+    time_100ms_flag                          0x2000003f   Data           1  main.o(.data)
+    time_1000ms_flag                         0x20000040   Data           1  main.o(.data)
+    pDir                                     0x20000044   Data           4  main.o(.data)
+    version                                  0x20000048   Data           1  main.o(.data)
+    res                                      0x20000049   Data           1  main.o(.data)
+    i                                        0x2000004a   Data           1  main.o(.data)
+    file_size                                0x2000004c   Data           4  main.o(.data)
+    __initial_sp                             0x20000450   Data           0  startup_stm32f10x_md.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x080000ed
+
+  Load Region LOAD_ROM0 (Base: 0x08000000, Size: 0x00000918, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region EXEC_ROM0 (Base: 0x08000000, Size: 0x000008c8, Max: 0x00010000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08000000   0x000000ec   Data   RO            3    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x00000000   Code   RO         1193  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080000ec   0x00000004   Code   RO         1196    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080000f0   0x00000004   Code   RO         1199    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080000f4   0x00000000   Code   RO         1201    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080000f4   0x00000008   Code   RO         1202    .ARM.Collect$$$$00000009  mc_w.l(entry8.o)
+    0x080000fc   0x00000004   Code   RO         1197    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000100   0x00000024   Code   RO            4    .text               startup_stm32f10x_md.o
+    0x08000124   0x00000024   Code   RO         1203    .text               mc_w.l(init.o)
+    0x08000148   0x00000004   Code   RO          127    i.BusFault_Handler  stm32f10x_it.o
+    0x0800014c   0x00000058   Code   RO          331    i.CH376_HOST_INIT   CH376.o
+    0x080001a4   0x0000000a   Code   RO          332    i.CH376_RD_DAT_PORT  CH376.o
+    0x080001ae   0x00000002   PAD
+    0x080001b0   0x00000044   Code   RO          333    i.CH376_ReadWriteByte  CH376.o
+    0x080001f4   0x000000b8   Code   RO          334    i.CH376_SPI_Init    CH376.o
+    0x080002ac   0x0000002c   Code   RO          335    i.CH376_WR_CMD_PORT  CH376.o
+    0x080002d8   0x0000000c   Code   RO          336    i.CH376_WR_DAT_PORT  CH376.o
+    0x080002e4   0x00000002   Code   RO          128    i.DebugMon_Handler  stm32f10x_it.o
+    0x080002e6   0x00000112   Code   RO          654    i.GPIO_Init         STM32103.lib(stm32f10x_gpio.o)
+    0x080003f8   0x00000004   Code   RO          661    i.GPIO_ResetBits    STM32103.lib(stm32f10x_gpio.o)
+    0x080003fc   0x00000004   Code   RO          662    i.GPIO_SetBits      STM32103.lib(stm32f10x_gpio.o)
+    0x08000400   0x00000004   Code   RO          129    i.HardFault_Handler  stm32f10x_it.o
+    0x08000404   0x00000004   Code   RO          130    i.MemManage_Handler  stm32f10x_it.o
+    0x08000408   0x00000002   Code   RO          131    i.NMI_Handler       stm32f10x_it.o
+    0x0800040a   0x00000002   Code   RO          132    i.PendSV_Handler    stm32f10x_it.o
+    0x0800040c   0x00000020   Code   RO          853    i.RCC_APB2PeriphClockCmd  STM32103.lib(stm32f10x_rcc.o)
+    0x0800042c   0x00000018   Code   RO         1054    i.SPI_Cmd           STM32103.lib(stm32f10x_spi.o)
+    0x08000444   0x00000012   Code   RO         1062    i.SPI_I2S_GetFlagStatus  STM32103.lib(stm32f10x_spi.o)
+    0x08000456   0x00000006   Code   RO         1065    i.SPI_I2S_ReceiveData  STM32103.lib(stm32f10x_spi.o)
+    0x0800045c   0x00000004   Code   RO         1066    i.SPI_I2S_SendData  STM32103.lib(stm32f10x_spi.o)
+    0x08000460   0x0000003c   Code   RO         1067    i.SPI_Init          STM32103.lib(stm32f10x_spi.o)
+    0x0800049c   0x00000002   Code   RO          133    i.SVC_Handler       stm32f10x_it.o
+    0x0800049e   0x00000008   Code   RO           10    i.SetSysClock       system_stm32f10x.o
+    0x080004a6   0x00000002   PAD
+    0x080004a8   0x000000c8   Code   RO           11    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000570   0x0000006c   Code   RO          134    i.SysTick_Handler   stm32f10x_it.o
+    0x080005dc   0x00000060   Code   RO           13    i.SystemInit        system_stm32f10x.o
+    0x0800063c   0x00000004   Code   RO          135    i.UsageFault_Handler  stm32f10x_it.o
+    0x08000640   0x0000000e   Code   RO         1207    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800064e   0x00000002   Code   RO         1208    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08000650   0x0000000e   Code   RO         1209    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800065e   0x00000018   Code   RO          338    i.delay_ms          CH376.o
+    0x08000676   0x00000018   Code   RO          339    i.delay_us          CH376.o
+    0x0800068e   0x00000002   PAD
+    0x08000690   0x00000038   Code   RO          236    i.key_done          key.o
+    0x080006c8   0x00000028   Code   RO          237    i.key_init          key.o
+    0x080006f0   0x0000009c   Code   RO          238    i.key_scan          key.o
+    0x0800078c   0x0000006c   Code   RO          194    i.main              main.o
+    0x080007f8   0x0000001a   Code   RO          261    i.mdelay            tm1640.o
+    0x08000812   0x00000002   PAD
+    0x08000814   0x00000068   Code   RO          195    i.systick_init      main.o
+    0x0800087c   0x0000002c   Code   RO          264    i.tm1640_init       tm1640.o
+    0x080008a8   0x00000020   Data   RO         1205    Region$$Table       anon$$obj.o
+
+
+    Execution Region DATA_RAM0 (Base: 0x20000000, Size: 0x00000450, Max: 0x00005000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00000014   Data   RW           14    .data               system_stm32f10x.o
+    0x20000014   0x00000004   Data   RW          136    .data               stm32f10x_it.o
+    0x20000018   0x00000038   Data   RW          197    .data               main.o
+    0x20000050   0x00000400   Zero   RW            1    STACK               startup_stm32f10x_md.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       454         24          0          0          0       3879   CH376.o
+       252         46          0          0          0       1097   key.o
+       212         30          0         56          0      16518   main.o
+        36          8        236          0       1024        844   startup_stm32f10x_md.o
+       132         22          0          4          0       3094   stm32f10x_it.o
+       304         26          0         20          0     234709   system_stm32f10x.o
+        70          6          0          0          0        775   tm1640.o
+
+    ----------------------------------------------------------------------
+      1468        162        268         80       1024     260916   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+         8          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+       282          0          0          0          0     224204   stm32f10x_gpio.o
+        32          6          0          0          0        553   stm32f10x_rcc.o
+       112          0          0          0          0       3754   stm32f10x_spi.o
+         0          0          0          0          0          0   entry.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         8          4          0          0          0          0   entry8.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+
+    ----------------------------------------------------------------------
+       512         22          0          0          0     228579   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       426          6          0          0          0     228511   STM32103.lib
+        86         16          0          0          0         68   mc_w.l
+
+    ----------------------------------------------------------------------
+       512         22          0          0          0     228579   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      1980        184        268         80       1024     488119   Grand Totals
+      1980        184        268         80       1024     488119   ELF Image Totals
+      1980        184        268         80          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 2248 (   2.20kB)
+    Total RW  Size (RW Data + ZI Data)              1104 (   1.08kB)
+    Total ROM Size (Code + RO Data + RW Data)       2328 (   2.27kB)
+
+==============================================================================
+
