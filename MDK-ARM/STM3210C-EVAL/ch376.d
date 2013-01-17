@@ -30,3 +30,6 @@
 .\STM3210C-EVAL\ch376.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\STM3210C-EVAL\ch376.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\STM3210C-EVAL\ch376.o: ..\usr\CH376INC.h
+.\STM3210C-EVAL\ch376.o: ..\usr\tm1640.h
+.\STM3210C-EVAL\ch376.o: ..\usr\flash_eep.h
+.\STM3210C-EVAL\ch376.o: ..\usr\FILE_SYS.H

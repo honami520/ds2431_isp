@@ -30,3 +30,6 @@
 .\isp\CH376.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\isp\CH376.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\isp\CH376.o: ..\usr\CH376INC.h
+.\isp\CH376.o: ..\usr\tm1640.h
+.\isp\CH376.o: ..\usr\flash_eep.h
+.\isp\CH376.o: ..\usr\FILE_SYS.H

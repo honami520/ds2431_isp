@@ -29,3 +29,9 @@
 .\isp\key.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\isp\key.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\isp\key.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\isp\key.o: ..\usr\ds2431.h
+.\isp\key.o: ..\usr\FILE_SYS.H
+.\isp\key.o: ..\usr\CH376.H
+.\isp\key.o: ..\usr\CH376INC.h
+.\isp\key.o: ..\usr\tm1640.h
+.\isp\key.o: ..\usr\flash_eep.h

@@ -11,59 +11,44 @@ void systick_init(void)
 }
 
 
+
 int main(void)
 {
-	uint8_t i;
-	
 	systick_init();
+	eep_init();
 	key_init();
 	tm1640_init();
 	led_init();
 	mdelay(100);
 	CH376_HOST_INIT();
-	
-	for (i = 0; i < 10; i ++)
-	{
-		if(CH376DiskConnect() == USB_INT_SUCCESS)
-		{
-			if(USB_INT_SUCCESS == CH376DiskMount())
-			{
-				break;
-			}
-			else
-			{
-				mdelay(200);
-			}
-		}	
-		else
-		{
-			mdelay(500);
-		}
-	}
+	ds2431_init();
 	
 	while (1)
 	{
 		if (time_1ms_flag == 1)
 		{
 			time_1ms_flag = 0;
-			key_scan();
-			key_done();
+
 		}
 		
 		if (time_10ms_flag == 1)
 		{
 			time_10ms_flag = 0;
+			key_scan();
+			key_done();			
 		}
 		
 		if (time_100ms_flag == 1)
 		{
 			time_100ms_flag = 0;
-			sg_write();
+			seg_handle();
+			usb_check_handle();
 		}
 		
 		if (time_1000ms_flag == 1)
 		{
 			time_1000ms_flag = 0;
+			usb_nc_handle();
 		}
 	}
 }

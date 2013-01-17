@@ -29,3 +29,9 @@
 .\STM3210C-EVAL\key.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\STM3210C-EVAL\key.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\STM3210C-EVAL\key.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\STM3210C-EVAL\key.o: ..\usr\ds2431.h
+.\STM3210C-EVAL\key.o: ..\usr\FILE_SYS.H
+.\STM3210C-EVAL\key.o: ..\usr\CH376.H
+.\STM3210C-EVAL\key.o: ..\usr\CH376INC.h
+.\STM3210C-EVAL\key.o: ..\usr\tm1640.h
+.\STM3210C-EVAL\key.o: ..\usr\flash_eep.h

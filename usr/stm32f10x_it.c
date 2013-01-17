@@ -23,6 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "tm1640.h"
 
 
 extern uint8_t time_1ms_flag;
@@ -144,6 +145,8 @@ void SysTick_Handler(void)
 	
 	i ++;
 	time_1ms_flag = 1;
+	
+	led_handle();
 	
 	if ((i % 10) == 0)
 	{

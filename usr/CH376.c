@@ -21,23 +21,13 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "CH376.h"
+#include "tm1640.h"
+#include "flash_eep.h"
+#include "FILE_SYS.H"
 
-void delay_us(uint16_t i)
-{
-	uint8_t j;
-	for(;i > 0;i --)
-	{
-		for(j = 72;j > 0;j --);
-	}
-}
-
-void delay_ms(uint16_t i)
-{
-	while(i --)
-	{
-		delay_us(100);
-	}
-}
+extern uint8_t usb_state;				//USB连接挂载状态	0:未连接		1:连接但未挂载		2:连接已挂载
+extern uint8_t err_state;
+extern uint16_t ds2431_num;
 
 /*******************************************************************************
 * Function Name  : CH376_SPI_Init
@@ -129,9 +119,9 @@ uint8_t CH376_ReadWriteByte(uint8_t data)
 void CH376_WR_CMD_PORT( uint8_t cmd )
 {
 	CH376_CS_HIGH();               /* 防止之前未通过xEndCH376Cmd禁止SPI片选 */
-	delay_us(1);
+	udelay(1);
 	CH376_CS_LOW();                /* 片选有效 */
-	delay_us(1);
+	udelay(1);
 	CH376_ReadWriteByte( cmd );    /* 发出命令码 */
 }
 
@@ -188,38 +178,23 @@ uint8_t READ_CH376_VERSION(void)
 
 uint8_t CH376_DISK_CONNECT(void)
 {
-	uint8_t res,i;
+	uint8_t res;
 
-	for(i = 0;i < 5;i ++)
-	{
-		CH376_WR_CMD_PORT(CMD0H_DISK_CONNECT);
-		res = wait_interrupt();
-		if(res == USB_INT_SUCCESS)
-		{
-			break;
-		}
-		delay_ms(50);
-	}
+	CH376_WR_CMD_PORT(CMD0H_DISK_CONNECT);
+	res = wait_interrupt();
 	CH376_CS_HIGH();
+	
 	return res;
 }
 
 uint8_t CH376_DISK_MOUNT(void)
 {
-	uint8_t res,i;
+	uint8_t res;
 
-	for(i = 0;i < 5;i ++)
-	{
-		CH376_WR_CMD_PORT(CMD0H_DISK_MOUNT);
-		res = wait_interrupt();
-		if(res == USB_INT_SUCCESS)
-		{
-			break;
-		}
-		delay_ms(50);
-		
-	}
+	CH376_WR_CMD_PORT(CMD0H_DISK_MOUNT);
+	res = wait_interrupt();
 	CH376_CS_HIGH();
+	
 	return res;
 }
 
@@ -235,34 +210,132 @@ uint8_t CH376_HOST_INIT(void)
 {  
 	uint8_t res;
 	
-	CH376_SPI_Init( );                             //接口硬件初始化
-	CH376_WR_CMD_PORT( CMD11_CHECK_EXIST );        //测试单片机与CH376之间的通讯接口
-	CH376_WR_DAT_PORT( 0x65 );
-	res = CH376_RD_DAT_PORT( );
+	CH376_SPI_Init();                             //接口硬件初始化
+	CH376_WR_CMD_PORT(CMD11_CHECK_EXIST);        //测试单片机与CH376之间的通讯接口
+	CH376_WR_DAT_PORT(0x65);
+	res = CH376_RD_DAT_PORT();
 	CH376_CS_HIGH();
-	if ( res != 0x9A ) 
+	if (res != 0x9A) 
 	{
-		return( ERR_USB_UNKNOWN );          		//通讯接口不正常
+		err_state = 1;
+		return(ERR_USB_UNKNOWN);          			//通讯接口不正常
 	}
 
-	CH376_WR_CMD_PORT( CMD11_SET_USB_MODE );        //设备USB工作模式
-	CH376_WR_DAT_PORT( 0x06 );
-	delay_ms( 1 );
-	res = CH376_RD_DAT_PORT( );
-	CH376_CS_HIGH( );
+	CH376_WR_CMD_PORT(CMD11_SET_USB_MODE);        //设备USB工作模式
+	CH376_WR_DAT_PORT(0x06);
+	mdelay(1);
+	res = CH376_RD_DAT_PORT();
+	CH376_CS_HIGH();
 
-	if ( res == CMD_RET_SUCCESS ) 
+	if (res == CMD_RET_SUCCESS) 
 	{
-	    return( USB_INT_SUCCESS );					//USB模式设置成功					
+	    return(USB_INT_SUCCESS);				//USB模式设置成功					
 	}
 	else 
 	{
-	    return( ERR_USB_UNKNOWN );                   //设置模式错误
+		err_state = 2;							//故障2，设置USB工作模式失败
+	    return(ERR_USB_UNKNOWN);                //设置模式错误
+	}
+}
+
+
+
+//USB插入和拔出检测，带自动挂载功能
+//100ms进入一次
+void usb_check_handle(void)
+{
+	uint8_t ret = 0;
+	uint32_t tsize = 0;
+	uint8_t i;
+	
+	if (err_state == 0)
+	{
+		//CH376无故障时候，检查U盘状况
+		if (usb_state == 1)
+		{
+			//U盘已经连接，未挂载
+			ret = CH376_DISK_MOUNT();
+			
+			if (ret == USB_INT_SUCCESS)
+			{
+				//U盘连接成功
+				ret = 0;
+				usb_state = 2;
+				
+				for (i = 0; i < 10; i ++)
+				{
+					ret = CH376FileOpen("/DS2431.TXT");
+					if (ret == USB_INT_SUCCESS)
+					{
+						//文件打开成功，则跳出
+						break;
+					}
+					else if (ret == ERR_MISS_FILE)
+					{
+						//文件不存在，则创建
+						ret = CH376FileCreate("/DS2431.TXT");
+						
+						if (ret == USB_INT_SUCCESS)
+						{
+							//文件创建成功，跳出
+							CH376FileOpen("/DS2431.TXT");
+							break;
+						}
+					}
+					else
+					{
+						//延时再次尝试打开
+						mdelay(100);
+					}
+				}	
+				
+				if (i < 10)
+				{
+					//文件已经打开
+					tsize = CH376GetFileSize();
+					
+					//计算DS2431记录个数，写入EEPROM
+					ds2431_num = tsize / 238;
+					eep_write16(REG_DS2431, ds2431_num);
+					
+					CH376FileClose(FALSE);
+				}
+			}
+		}
+		else if (usb_state == 0)
+		{
+			//U盘未连接
+			ret = CH376_DISK_CONNECT();
+			
+			if (ret == USB_INT_SUCCESS)
+			{
+				//U盘连接成功
+				ret = 0;
+				usb_state = 1;
+			}
+		}
+	}
+}
+
+
+void usb_nc_handle(void)
+{
+	uint8_t res = 0;
+	
+	//USB断开检测
+	if (usb_state == 2)
+	{
+		res = CH376_DISK_CONNECT();
+		
+		if (res == ERR_DISK_DISCON)
+		{
+			usb_state = 0;
+		}
 	}
 }
 
 
 /*********************************************************************************************************
-      END FILE
+    END FILE
 *********************************************************************************************************/
 

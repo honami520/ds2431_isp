@@ -10,16 +10,19 @@
 ### List of Objects: adding '".\stm3210c-eval\ch376.o"'
 ### List of Objects: adding '".\stm3210c-eval\file_sys.o"'
 ### List of Objects: adding '".\stm3210c-eval\tm1640.o"'
+### List of Objects: adding '".\stm3210c-eval\ds2431.o"'
+### List of Objects: adding '".\stm3210c-eval\eeprom.o"'
+### List of Objects: adding '".\stm3210c-eval\flash_eep.o"'
 ### List of Objects: adding '".\stm3210c-eval\core_cm3.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 ".\stm3210c-eval\startup_stm32f10x_md.o" F:\ds2431_isp\usr\STM32103.lib ".\stm3210c-eval\key.o" ".\stm3210c-eval\main.o" ".\stm3210c-eval\stm32f10x_it.o" ".\stm3210c-eval\system_stm32f10x.o" ".\stm3210c-eval\ch376.o" ".\stm3210c-eval\file_sys.o" ".\stm3210c-eval\tm1640.o" ".\stm3210c-eval\core_cm3.o" --library_type=microlib --strict --scatter ".\STM3210C-EVAL\STM32103.sct" 
+--cpu Cortex-M3 ".\stm3210c-eval\startup_stm32f10x_md.o" F:\ds2431_isp\usr\STM32103.lib ".\stm3210c-eval\key.o" ".\stm3210c-eval\main.o" ".\stm3210c-eval\stm32f10x_it.o" ".\stm3210c-eval\system_stm32f10x.o" ".\stm3210c-eval\ch376.o" ".\stm3210c-eval\file_sys.o" ".\stm3210c-eval\tm1640.o" ".\stm3210c-eval\ds2431.o" ".\stm3210c-eval\eeprom.o" ".\stm3210c-eval\flash_eep.o" ".\stm3210c-eval\core_cm3.o" --library_type=microlib --strict --scatter ".\STM3210C-EVAL\STM32103.sct" 
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\STM3210C-EVAL\STM32103.map" -o ".\STM3210C-EVAL\STM32103.axf"### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: '.\STM3210C-EVAL\STM32103.axf'
 ### ADS-LD Command File: '.\STM3210C-EVAL\STM32103.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\STM3210C-EVAL\STM32103.lnp', Handle=0x0000084C
+### Creating CmdFile '.\STM3210C-EVAL\STM32103.lnp', Handle=0x00000E04
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\STM3210C-EVAL\STM32103.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -34,3 +34,6 @@
 .\isp\main.o: ..\usr\CH376.h
 .\isp\main.o: ..\usr\CH376INC.h
 .\isp\main.o: ..\usr\FILE_SYS.H
+.\isp\main.o: ..\usr\eeprom.h
+.\isp\main.o: ..\usr\flash_eep.h
+.\isp\main.o: ..\usr\ds2431.h

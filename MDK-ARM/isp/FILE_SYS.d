@@ -31,3 +31,4 @@
 .\isp\FILE_SYS.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\isp\FILE_SYS.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\isp\FILE_SYS.o: ..\usr\CH376INC.h
+.\isp\FILE_SYS.o: ..\usr\tm1640.h

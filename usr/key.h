@@ -16,6 +16,9 @@
 void key_init(void);
 void key_scan(void);
 void key_done(void);
+uint8_t rom_check(void);
+uint8_t file_write(void);
+uint16_t usb_buf_in(void);
 
 #endif
 

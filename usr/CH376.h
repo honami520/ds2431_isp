@@ -49,18 +49,18 @@
 #define CH376_INT_IN                      GPIO_ReadInputDataBit(CH376_INT_PORT, CH376_INT_PIN)
 
 /* Private function prototypes -----------------------------------------------*/
-void delay_us(uint16_t i);
-void delay_ms(uint16_t i);
 void CH376_SPI_Init(void);
 uint8_t CH376_ReadWriteByte(uint8_t data);
-void CH376_WR_CMD_PORT( uint8_t cmd );
-void CH376_WR_DAT_PORT( uint8_t dat );
-uint8_t CH376_RD_DAT_PORT( void );
+void CH376_WR_CMD_PORT(uint8_t cmd);
+void CH376_WR_DAT_PORT(uint8_t dat);
+uint8_t CH376_RD_DAT_PORT(void);
 uint8_t CH376_HOST_INIT(void);
 uint8_t wait_interrupt(void);
 uint8_t READ_CH376_VERSION(void);
 uint8_t CH376_DISK_CONNECT(void);
 uint8_t CH376_DISK_MOUNT(void);
+void usb_check_handle(void);
+void usb_nc_handle(void);
 
 #endif
 /*********************************************************************************************************

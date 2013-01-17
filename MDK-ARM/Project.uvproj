@@ -443,6 +443,21 @@
               <FileType>1</FileType>
               <FilePath>..\usr\tm1640.c</FilePath>
             </File>
+            <File>
+              <FileName>ds2431.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\ds2431.c</FilePath>
+            </File>
+            <File>
+              <FileName>eeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\eeprom.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash_eep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\flash_eep.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -26,7 +26,8 @@
 /* 定义 EN_LONG_NAME 用于提供支持长文件名的子程序,默认是不提供 */
 /* 定义 DEF_IC_V43_U 用于去掉支持低版本的程序代码,仅支持V4.3及以上版本的CH376芯片,默认是支持低版本 */
 
-#include"FILE_SYS.H"
+#include "FILE_SYS.H"
+#include "tm1640.h"
 /*******************************************************************************
 * 函  数  名      : CH376ReadBlock
 * 描      述      : 从当前主机端点的接收缓冲区读取数据块,.
@@ -343,7 +344,7 @@ UINT8	CH376SendCmdWaitInt( UINT8 mCmd )
 {
 	CH376_WR_CMD_PORT( mCmd );
 	CH376_CS_HIGH( );
-	delay_us(1);
+	udelay(1);
 	return( Wait376Interrupt( ) );
 }
 
@@ -358,7 +359,7 @@ UINT8	CH376SendCmdDatWaitInt( UINT8 mCmd, UINT8 mDat )
 	CH376_WR_CMD_PORT( mCmd );
 	CH376_WR_DAT_PORT( mDat );
 	CH376_CS_HIGH( );
-	delay_us(1);
+	udelay(1);
 	return( Wait376Interrupt( ) );
 }
 
@@ -373,9 +374,9 @@ UINT8	CH376DiskReqSense( void )
 {
 	UINT8	s;
 
-	delay_ms( 5 );
+	mdelay( 5 );
 	s = CH376SendCmdWaitInt( CMD0H_DISK_R_SENSE );
-	delay_ms( 5 );
+	mdelay( 5 );
 	return( s );
 }
 
@@ -440,7 +441,7 @@ UINT8	CH376FileCreate( PUINT8 name )
 		{
 			break;
 		}
-		delay_ms(1);
+		mdelay(1);
 	}
 	return res;
 }
@@ -738,7 +739,7 @@ UINT8	CH376FileClose( UINT8 UpdateSz )
 		{
 			break;
 		}
-		delay_ms(1);
+		mdelay(1);
 	}
 
 	return res;

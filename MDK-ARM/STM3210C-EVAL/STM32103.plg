@@ -4,10 +4,10 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 F:\ds2431_isp\MDK-ARM\Project.uvproj
-Project File Date:  01/12/2013
+Project File Date:  01/16/2013
 
 <h2>Output:</h2>
-Build target 'isp'
+Rebuild target 'isp'
 assembling startup_stm32f10x_md.s...
 compiling key.c...
 compiling main.c...
@@ -16,360 +16,17 @@ compiling system_stm32f10x.c...
 compiling CH376.c...
 compiling FILE_SYS.C...
 compiling tm1640.c...
+compiling ds2431.c...
+compiling eeprom.c...
+compiling flash_eep.c...
 compiling core_cm3.c...
 linking...
-Program Size: Code=1980 RO-data=268 RW-data=80 ZI-data=1024  
+Program Size: Code=7480 RO-data=268 RW-data=124 ZI-data=4348  
 FromELF: creating hex file...
 ".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
-Application running ...
 Build target 'isp'
-compiling main.c...
 linking...
-Program Size: Code=2356 RO-data=268 RW-data=80 ZI-data=2160  
-FromELF: creating hex file...
-".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
-**JLink Warning: RESET (pin 15) high, but should be low. Please check target hardware.
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
-**JLink Warning: RESET (pin 15) high, but should be low. Please check target hardware.
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-**JLink Warning: Could not set S_RESET_ST
-**JLink Warning: RESET (pin 15) high, but should be low. Please check target hardware.
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Failed!
-Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
-* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
-Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
- 
-JLink info:
-------------
-DLL: V4.40c, compiled Jan 24 2012 09:30:33
-Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
-Hardware: V7.00
-S/N : 20090928 
-Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
- 
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-ROMTableAddr = 0xE00FF003
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
- 
-Target info:
-------------
-Device: STM32F103C8
-VTarget = 3.300V
-State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
-Hardware-Breakpoints: 6
-Software-Breakpoints: 8192
-Watchpoints:          4
-JTAG speed: 2000 kHz
- 
-Erase Done.
-Programming Done.
-Verify OK.
-* JLink Info: Found SWD-DP with ID 0x1BA01477
-* JLink Info: TPIU fitted.
-* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
-* JLink Info: Found Cortex-M3 r1p1, Little endian.
-Application running ...
-Build target 'isp'
-compiling main.c...
-linking...
-Program Size: Code=2356 RO-data=268 RW-data=112 ZI-data=1024  
+Program Size: Code=7480 RO-data=268 RW-data=124 ZI-data=4348  
 FromELF: creating hex file...
 ".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
 Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
@@ -416,7 +73,710 @@ Application running ...
 Build target 'isp'
 compiling main.c...
 linking...
-Program Size: Code=2584 RO-data=268 RW-data=112 ZI-data=1024  
+Program Size: Code=7480 RO-data=268 RW-data=124 ZI-data=4348  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling tm1640.c...
+linking...
+Program Size: Code=7484 RO-data=268 RW-data=124 ZI-data=4348  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+compiling main.c...
+compiling CH376.c...
+compiling FILE_SYS.C...
+linking...
+Program Size: Code=7524 RO-data=268 RW-data=124 ZI-data=4348  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+compiling main.c...
+compiling stm32f10x_it.c...
+compiling CH376.c...
+compiling FILE_SYS.C...
+compiling tm1640.c...
+compiling ds2431.c...
+linking...
+Program Size: Code=7540 RO-data=268 RW-data=124 ZI-data=4348  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Done.
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+compiling main.c...
+linking...
+Program Size: Code=7556 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Done.
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Done.
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+linking...
+Program Size: Code=7564 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Done.
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+linking...
+Program Size: Code=7752 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Done.
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+compiling CH376.c...
+linking...
+Program Size: Code=7868 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Build target 'isp'
+linking...
+Program Size: Code=7868 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling key.c...
+linking...
+Program Size: Code=7876 RO-data=268 RW-data=120 ZI-data=4352  
 FromELF: creating hex file...
 ".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
 Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
@@ -464,7 +824,7 @@ Build target 'isp'
 compiling main.c...
 compiling tm1640.c...
 linking...
-Program Size: Code=2644 RO-data=268 RW-data=112 ZI-data=1024  
+Program Size: Code=7876 RO-data=268 RW-data=120 ZI-data=4352  
 FromELF: creating hex file...
 ".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
 Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
@@ -494,7 +854,7 @@ Target info:
 Device: STM32F103C8
 VTarget = 3.300V
 State of Pins: 
-TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 0
 Hardware-Breakpoints: 6
 Software-Breakpoints: 8192
 Watchpoints:          4
@@ -508,3 +868,103 @@ Verify OK.
 * JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
 * JLink Info: Found Cortex-M3 r1p1, Little endian.
 Application running ...
+Build target 'isp'
+compiling tm1640.c...
+linking...
+Program Size: Code=7876 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 0
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling tm1640.c...
+linking...
+Program Size: Code=7876 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).
+Load "F:\\ds2431_isp\\MDK-ARM\\STM3210C-EVAL\\STM32103.AXF" 
+* JLink Info: Device "STM32F103C8" selected (64 KB flash, 20 KB RAM).
+Set JLink Project File to "F:\ds2431_isp\MDK-ARM\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM-OB STM32 compiled Aug 22 2012 19:52:04
+Hardware: V7.00
+S/N : 20090928 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFull 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.300V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 0
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+Application running ...
+Build target 'isp'
+compiling main.c...
+linking...
+Program Size: Code=7876 RO-data=268 RW-data=120 ZI-data=4352  
+FromELF: creating hex file...
+".\STM3210C-EVAL\STM32103.axf" - 0 Error(s), 0 Warning(s).

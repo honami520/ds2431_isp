@@ -31,3 +31,4 @@
 .\STM3210C-EVAL\file_sys.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\STM3210C-EVAL\file_sys.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\STM3210C-EVAL\file_sys.o: ..\usr\CH376INC.h
+.\STM3210C-EVAL\file_sys.o: ..\usr\tm1640.h

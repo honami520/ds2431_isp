@@ -117,7 +117,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>0</UseSimulator>
+            <UseSimulator>1</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -128,7 +128,7 @@
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
           </Simulator>
           <Target>
-            <UseTarget>1</UseTarget>
+            <UseTarget>0</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -138,7 +138,7 @@
             <RestoreToolbox>1</RestoreToolbox>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>7</TargetSelection>
+          <TargetSelection>5</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -427,6 +427,36 @@
               <FileName>system_stm32f10x.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\usr\system_stm32f10x.c</FilePath>
+            </File>
+            <File>
+              <FileName>CH376.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\CH376.c</FilePath>
+            </File>
+            <File>
+              <FileName>FILE_SYS.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\FILE_SYS.C</FilePath>
+            </File>
+            <File>
+              <FileName>tm1640.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\tm1640.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds2431.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\ds2431.c</FilePath>
+            </File>
+            <File>
+              <FileName>eeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\eeprom.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash_eep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\flash_eep.c</FilePath>
             </File>
           </Files>
         </Group>

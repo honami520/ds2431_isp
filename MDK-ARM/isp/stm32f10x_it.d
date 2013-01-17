@@ -29,3 +29,4 @@
 .\isp\stm32f10x_it.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\isp\stm32f10x_it.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\isp\stm32f10x_it.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\isp\stm32f10x_it.o: ..\usr\tm1640.h

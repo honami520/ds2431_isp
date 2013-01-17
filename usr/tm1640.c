@@ -4,9 +4,16 @@
 
 extern uint8_t seg_dat[28];
 extern uint8_t seg_buf[16];
-extern uint8_t seg_back[16];
-extern uint8_t seg_blink[16];
 
+extern uint16_t ds2431_num;
+extern uint16_t stm8_num;
+
+extern uint8_t err_state;
+extern uint8_t usb_state;
+
+
+extern uint8_t led_flag;				//LED标志，1为SUCCESS, 2为FAILED
+extern uint16_t led_delay_num;			//LED延时
 
 
 void udelay(uint16_t i)
@@ -15,7 +22,7 @@ void udelay(uint16_t i)
 	
 	for (; i > 0; i --)
 	{
-		j = 12;
+		j = 10;
 		while(j > 0)
 		{
 			j --;
@@ -28,7 +35,7 @@ void mdelay(uint16_t i)
     uint16_t j;
     for(; i > 0; i --)
 	{
-		j = 12000;
+		j = 10000;
 		while(j > 0)
 		{
 			j --;
@@ -48,6 +55,8 @@ void tm1640_init(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);	
+	
+	seg_init();
 }
 
 
@@ -64,8 +73,8 @@ void led_init(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);		
 	
-	LED_SUC_ON();
-	LED_FAIL_ON();
+	LED_SUC_OFF();
+	LED_FAIL_OFF();
 }
 
 
@@ -143,47 +152,129 @@ void write_dat(uint8_t cmd, uint8_t *buf)
 		tm1640_write_byte(*(buf + i));
 	}
     
-    tm1640_stop();	
+    tm1640_stop();
 }
 
 
-void sg_write(void)
-{ 
+
+void seg_init(void)
+{
+	seg_handle();
+}
+
+
+void seg_handle(void)
+{
+	if ((err_state == 0) && (usb_state == 2))
+	{
+		//无故障的时候显示数字
+		seg_buf[0] = seg_dat[ds2431_num / 1000];
+		seg_buf[1] = seg_dat[(ds2431_num % 1000) / 100];
+		seg_buf[2] = seg_dat[(ds2431_num % 100) / 10];
+		seg_buf[3] = seg_dat[ds2431_num % 10];
+		
+		if (seg_buf[0] == seg_dat[SEG_0])
+		{
+			seg_buf[0] = seg_dat[SEG_BLANK];
+			
+			if (seg_buf[1] == seg_dat[SEG_0])
+			{
+				seg_buf[1] = seg_dat[SEG_BLANK];
+				
+				if (seg_buf[2] == seg_dat[SEG_0])
+				{
+					seg_buf[2] = seg_dat[SEG_BLANK];
+				}
+			}
+		}
+		
+		seg_buf[4] = seg_dat[stm8_num / 1000];
+		seg_buf[5] = seg_dat[(stm8_num % 1000) / 100];
+		seg_buf[6] = seg_dat[(stm8_num % 100) / 10];
+		seg_buf[7] = seg_dat[stm8_num % 10];
+		
+		if (seg_buf[4] == seg_dat[SEG_0])
+		{
+			seg_buf[4] = seg_dat[SEG_BLANK];
+			
+			if (seg_buf[5] == seg_dat[SEG_0])
+			{
+				seg_buf[5] = seg_dat[SEG_BLANK];
+				
+				if (seg_buf[6] == seg_dat[SEG_0])
+				{
+					seg_buf[6] = seg_dat[SEG_BLANK];
+				}
+			}
+		}		
+	}
+	else if (err_state != 0)
+	{
+		seg_buf[0] = seg_dat[SEG_E];
+		seg_buf[1] = seg_dat[SEG_R];
+		seg_buf[2] = seg_dat[SEG_R];
+		seg_buf[3] = seg_dat[SEG_BLANK];
+		seg_buf[4] = seg_dat[SEG_BLANK];
+		seg_buf[5] = seg_dat[SEG_BLANK];
+		seg_buf[6] = seg_dat[SEG_BLANK];
+		seg_buf[7] = seg_dat[SEG_BLANK];
+	}
+	else if (usb_state < 2)
+	{
+		seg_buf[0] = seg_dat[SEG_U];
+		seg_buf[1] = seg_dat[SEG_5];
+		seg_buf[2] = seg_dat[seg_B];
+		seg_buf[3] = seg_dat[SEG_BLANK];
+		seg_buf[4] = seg_dat[SEG_N];
+		seg_buf[5] = seg_dat[SEG_O];
+		seg_buf[6] = seg_dat[SEG_BLANK];
+		seg_buf[7] = seg_dat[SEG_BLANK];
+	}
+	
 	write_cmd(0x40);
 	write_dat(0xc0, seg_buf);
 	write_cmd(0x88);
 }
 
 
-
-void seg_blink_handle(void)
+//1ms进入一次
+void led_handle(void)
 {
-	static uint8_t step = 0;
-	uint8_t i;
-	
-	for (i = 0; i < 16; i ++)
+	if (led_flag == 1)
 	{
-		if (seg_blink[i] == 1)
+		LED_SUC_ON();
+		LED_FAIL_OFF();
+		led_delay_num ++;
+		
+		if (led_delay_num == 1000)
 		{
-			if (step == 0)
-			{
-				seg_buf[i] = seg_back[i];
-			}
-			else
-			{
-				seg_buf[i] = 0x00;
-			}
+			led_delay_num = 0;
+			led_flag = 0;
+			LED_SUC_OFF();
+			LED_FAIL_OFF();
 		}
 	}
-	
-	step ++;
-	
-	if (step == 2)
+	else if (led_flag == 2)
 	{
-		step = 0;
+		LED_SUC_OFF();
+		LED_FAIL_ON();
+		led_delay_num ++;
+		
+		if (led_delay_num == 1000)
+		{
+			led_delay_num = 0;
+			led_flag = 0;
+			LED_SUC_OFF();
+			LED_FAIL_OFF();
+		}		
+	}
+	else if (led_flag == 0)
+	{
+		led_delay_num = 0;
+		LED_SUC_OFF();
+		LED_FAIL_OFF();
 	}
 }
-
 
 
 
