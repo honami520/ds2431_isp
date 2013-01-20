@@ -9,6 +9,7 @@
 #include "eeprom.h"
 #include "flash_eep.h"
 #include "ds2431.h"
+#include "stm8.h"
 
 
 
@@ -92,6 +93,21 @@ uint8_t version,res,i;
 
 uint8_t usb_state = 0;			//USB连接挂载状态	0:未连接		1:连接但未挂载		2:连接已挂载
 uint8_t err_state = 0;			//故障类型
+
+
+
+//stm8
+uint8_t send_buf[100] = {0};
+uint8_t send_buf_num = 0;
+uint8_t rec_buf[50] = {0};
+uint8_t rec_buf_num = 0;
+uint8_t send_buf_flag = 0;
+uint16_t send_buf_delay = 0;
+
+
+//uart
+uint8_t clear_flag = 0;
+uint16_t clear_num = 0;
 
 #endif
 

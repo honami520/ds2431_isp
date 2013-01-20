@@ -4,8 +4,8 @@
 
 
 
-#define KEY1_READ()		(GPIOC->IDR & GPIO_Pin_13)
-#define KEY2_READ()		(GPIOC->IDR & GPIO_Pin_14)
+#define KEY1_READ()		(GPIOC->IDR & GPIO_Pin_14)
+#define KEY2_READ()		(GPIOC->IDR & GPIO_Pin_13)
 #define KEY3_READ()		(GPIOC->IDR & GPIO_Pin_15)
 
 
@@ -19,6 +19,7 @@ void key_done(void);
 uint8_t rom_check(void);
 uint8_t file_write(void);
 uint16_t usb_buf_in(void);
+uint8_t file_read(void);
 
 #endif
 

@@ -22,13 +22,14 @@ int main(void)
 	mdelay(100);
 	CH376_HOST_INIT();
 	ds2431_init();
+	stm8_init();
 	
 	while (1)
 	{
 		if (time_1ms_flag == 1)
 		{
 			time_1ms_flag = 0;
-
+			uart_clear();
 		}
 		
 		if (time_10ms_flag == 1)

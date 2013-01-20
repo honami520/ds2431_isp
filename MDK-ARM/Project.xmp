@@ -227,6 +227,8 @@
                 <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" />
                 <Header RelativePath="..\usr\CH376INC.h" />
                 <Header RelativePath="..\usr\tm1640.h" />
+                <Header RelativePath="..\usr\flash_eep.h" />
+                <Header RelativePath="..\usr\FILE_SYS.H" />
             </File>
             <File RelativePath="..\usr\FILE_SYS.C" FileType="1" Output="FILE_SYS.o" ro="0" bss="0" rw="0">
                 <Header RelativePath="..\usr\FILE_SYS.H" />
@@ -361,6 +363,7 @@
                 <Header RelativePath="..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" />
                 <Header RelativePath="..\usr\tm1640.h" />
             </File>
+            <File RelativePath="..\usr\stm8.c" FileType="1" Output="stm8.o" ro="0" bss="0" rw="0" />
         </Filter>
         <Filter Name="cotex-m3">
             <File RelativePath="..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.c" FileType="1" Output="core_cm3.o" ro="0" bss="0" rw="0">

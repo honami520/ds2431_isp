@@ -37,3 +37,4 @@
 .\STM3210C-EVAL\main.o: ..\usr\eeprom.h
 .\STM3210C-EVAL\main.o: ..\usr\flash_eep.h
 .\STM3210C-EVAL\main.o: ..\usr\ds2431.h
+.\STM3210C-EVAL\main.o: ..\usr\stm8.h

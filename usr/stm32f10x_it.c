@@ -24,12 +24,17 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 #include "tm1640.h"
+#include "stm8.h"
 
 
 extern uint8_t time_1ms_flag;
 extern uint8_t time_10ms_flag;
 extern uint8_t time_100ms_flag;
 extern uint8_t time_1000ms_flag;
+
+extern uint8_t send_buf_flag;
+extern uint16_t send_buf_delay;
+extern uint8_t led_flag;
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -147,6 +152,20 @@ void SysTick_Handler(void)
 	time_1ms_flag = 1;
 	
 	led_handle();
+	uart_clear();
+	
+	if (send_buf_flag == 1)
+	{
+		send_buf_delay ++;
+		
+		if (send_buf_delay == 1000)
+		{
+			//串口接收超时，报错
+			send_buf_flag = 0;
+			send_buf_delay = 0;
+			led_flag = 2;
+		}
+	}
 	
 	if ((i % 10) == 0)
 	{
@@ -163,6 +182,26 @@ void SysTick_Handler(void)
 		time_1000ms_flag = 1;
 	}
 }
+
+void USART1_IRQHandler(void)
+{
+	uint8_t tmp = 0;
+	
+	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+	{
+		tmp = USART_ReceiveData(USART1);
+		uart_rec_decode(tmp);
+	}
+}
+
+
+void DMA1_Channel4_IRQHandler(void)
+{
+	if (DMA_GetITStatus(DMA1_IT_TC4) == SET){
+		DMA_ClearITPendingBit(DMA1_IT_TC4);
+	}
+}
+
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */

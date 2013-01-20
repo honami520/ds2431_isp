@@ -35,3 +35,4 @@
 .\STM3210C-EVAL\key.o: ..\usr\CH376INC.h
 .\STM3210C-EVAL\key.o: ..\usr\tm1640.h
 .\STM3210C-EVAL\key.o: ..\usr\flash_eep.h
+.\STM3210C-EVAL\key.o: ..\usr\stm8.h

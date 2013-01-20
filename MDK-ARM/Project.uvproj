@@ -458,6 +458,11 @@
               <FileType>1</FileType>
               <FilePath>..\usr\flash_eep.c</FilePath>
             </File>
+            <File>
+              <FileName>stm8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\stm8.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

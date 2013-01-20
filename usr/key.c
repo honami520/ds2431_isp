@@ -3,6 +3,7 @@
 #include "FILE_SYS.H"
 #include "tm1640.h"
 #include "flash_eep.h"
+#include "stm8.h"
 
 
 extern uint8_t led_flag;				//LED标志，1为SUCCESS, 2为FAILED
@@ -24,6 +25,9 @@ extern uint8_t usb_state;
 
 extern uint16_t key1_num, key2_num, key3_num;
 extern uint8_t key1_flag, key2_flag, key3_flag;
+
+extern uint8_t send_buf_flag;
+extern uint16_t send_buf_delay;
 
 void key_init(void)
 {
@@ -90,6 +94,13 @@ void key_done(void)
 {
 	uint8_t rt = 0;
 	uint16_t i;
+	
+	if (led_flag != 0)
+	{
+		key1_flag = 0;
+		key2_flag = 0;
+		key3_flag = 0;
+	}
 
 	if (key1_flag == 1)
 	{
@@ -172,12 +183,77 @@ void key_done(void)
 	{
 		//写入STM8
 		key2_flag = 0;
+		
+		//关闭LED
+		led_flag = 0;
+		
+		if ((err_state == 0) && (usb_state == 2))
+		{
+			//USB正常的时候，执行读取U盘操作
+			if (ds2431_num > stm8_num)
+			{
+				//读取的号码不是最后一个的时候，读取
+				rt = file_read();
+				
+				if (rt == 1)
+				{
+					//读取分配成功，则写入STM8
+					stm8_write();
+					
+					//等待返回应答信息，确认成功
+					send_buf_flag = 1;
+					send_buf_delay = 0;
+				}
+				else if(rt == 0)
+				{
+					//读取失败，报错返回
+					led_flag = 2;
+					usb_state = 0;
+				}
+				
+				//清空缓存
+				for (i = 0; i < 8; i ++)
+				{
+					rom_buf[i] = 0;
+				}
+				
+				for (i = 0; i < 133; i ++)
+				{
+					mem_buf[i] = 0;
+				}
+				
+				for (i = 0; i < 500; i ++)
+				{
+					usb_buf[i] = 0;
+				}
+			}
+			else if (ds2431_num == stm8_num)
+			{
+				//已经读到最后一个，直接报错误
+				led_flag = 2;
+			}
+		}
 	}
 	
 	if (key3_flag == 1)
 	{
 		//复位STM8写入位置
 		key3_flag = 0;
+		
+		if ((err_state == 0) && (usb_state == 2))
+		{
+			//U盘正常时候，运行清除
+			if (stm8_num > 0)
+			{
+				stm8_num = 0;
+				eep_write16(REG_STM8, stm8_num);	
+				led_flag = 1;
+			}
+			else
+			{
+				led_flag = 2;
+			}
+		}
 	}
 }
 
@@ -225,6 +301,150 @@ uint8_t rom_check(void)
 	}
 	else
 	{	
+		return 0;
+	}
+}
+
+
+//1：读取成功；0：读取失败
+uint8_t file_read(void)
+{
+	uint16_t i;
+	uint8_t res = 0;
+	uint16_t tmb_real = 0;
+	uint32_t file_size = 0;
+	uint8_t tmp[2] = {0, 0};
+	
+	for (i = 0; i < 10; i ++)
+	{
+		res = CH376FileOpen("/DS2431.TXT");
+		if (res == USB_INT_SUCCESS)
+		{
+			//文件打开成功，则跳出
+			break;
+		}
+		else if (res == ERR_MISS_FILE)
+		{
+			//文件不存在，则直接返回0，读取失败
+			return 0;
+		}
+		else
+		{
+			//延时再次尝试打开
+			mdelay(100);
+		}
+	}
+	
+	if (i == 10)
+	{
+		//打开失败，直接返回0
+		return 0;
+	}
+	else if (i < 10)
+	{
+		//打开文件后，读取
+		file_size = stm8_num * 238;
+		CH376ByteLocate(file_size);
+		
+		res = CH376ByteRead(usb_buf, 238, &tmb_real);
+		
+		if ((res == USB_INT_SUCCESS) && (tmb_real == 238))
+		{
+			//读取数据成功，读取到足够的字节数
+			//将usb_buf中数据分配到rom_buf, mem_buf中
+			for (i = 0; i < 8; i ++)
+			{
+				tmp[0] = usb_buf[4 + 3 * i];
+				tmp[1] = usb_buf[4 + 3 * i + 1];
+				
+				//高4位
+				if ((tmp[0] >= '0') && (tmp[0] <= '9'))
+				{
+					rom_buf[i] = ((tmp[0] - 0x30) << 4);
+				}
+				else if ((tmp[0] >= 'A') && (tmp[0] <= 'F'))
+				{
+					rom_buf[i] = ((tmp[0] - 0x37) << 4);
+				}
+				
+				//低4位
+				if ((tmp[1] >= '0') && (tmp[1] <= '9'))
+				{
+					rom_buf[i] += (tmp[1] - 0x30);
+				}
+				else if ((tmp[1] >= 'A') && (tmp[1] <= 'F'))
+				{
+					rom_buf[i] += (tmp[1] - 0x37);
+				}
+			}
+			
+			//分配到mem0中
+			for (i = 0; i < 32; i ++)
+			{
+				tmp[0] = usb_buf[36 + 3 * i];
+				tmp[1] = usb_buf[36 + 3 * i + 1];
+				
+				//高4位
+				if ((tmp[0] >= '0') && (tmp[0] <= '9'))
+				{
+					mem_buf[i] = ((tmp[0] - 0x30) << 4);
+				}
+				else if ((tmp[0] >= 'A') && (tmp[0] <= 'F'))
+				{
+					mem_buf[i] = ((tmp[0] - 0x37) << 4);
+				}
+				
+				//低4位
+				if ((tmp[1] >= '0') && (tmp[1] <= '9'))
+				{
+					mem_buf[i] += (tmp[1] - 0x30);
+				}
+				else if ((tmp[1] >= 'A') && (tmp[1] <= 'F'))
+				{
+					mem_buf[i] += (tmp[1] - 0x37);
+				}				
+			}
+			
+			//分配到mem1中
+			for (i = 0; i < 32; i ++)
+			{
+				tmp[0] = usb_buf[140 + 3 * i];
+				tmp[1] = usb_buf[140 + 3 * i + 1];
+				
+				//高4位
+				if ((tmp[0] >= '0') && (tmp[0] <= '9'))
+				{
+					mem_buf[32 + i] = ((tmp[0] - 0x30) << 4);
+				}
+				else if ((tmp[0] >= 'A') && (tmp[0] <= 'F'))
+				{
+					mem_buf[32 + i] = ((tmp[0] - 0x37) << 4);
+				}
+				
+				//低4位
+				if ((tmp[1] >= '0') && (tmp[1] <= '9'))
+				{
+					mem_buf[32 + i] += (tmp[1] - 0x30);
+				}
+				else if ((tmp[1] >= 'A') && (tmp[1] <= 'F'))
+				{
+					mem_buf[32 + i] += (tmp[1] - 0x37);
+				}				
+			}
+		}
+		else
+		{
+			//读取失败，直接返回
+			CH376FileClose(FALSE);
+			return 0;
+		}
+		
+		//关闭文件
+		CH376FileClose(FALSE);
+		return 1;
+	}
+	else
+	{
 		return 0;
 	}
 }
